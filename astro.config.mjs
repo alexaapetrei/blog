@@ -7,7 +7,7 @@ import rehypeExternalLinks from 'rehype-external-links'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'http://sc0kogo00s80wos440kgs48g.128.140.83.239.sslip.io',
+  site: 'https://blog.urssur.com/',
   integrations: [mdx(), svelte()],
   markdown: {
     shikiConfig: {
