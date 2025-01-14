@@ -15,13 +15,11 @@ ENV NODE_ENV=production
 RUN npm run build
 
 # Stage 2: Serve the static files with Nginx
-FROM nginx:alpine
-
-# Copy the built static files from the build stage
-COPY --from=prerelease /app/dist /usr/share/nginx/html
-
+FROM nginx:alpine as runner
 # Copy a custom Nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copy the built static files from the build stage
+COPY --from=prerelease /app/dist /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
