@@ -7,7 +7,8 @@ import rehypeExternalLinks from 'rehype-external-links'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://blog.urssur.com/',
+  output: 'dist',
+  site: 'https://blog.urssur.com',
   integrations: [mdx(), svelte()],
   markdown: {
     shikiConfig: {
@@ -19,6 +20,7 @@ export default defineConfig({
         rehypeExternalLinks,
         {
           target: '_blank',
+          rel: ['noopener', 'noreferrer'],
         },
       ],
     ],
